@@ -91,3 +91,7 @@ for FILE in `ls $ABBREV/*.sh`
 do
   fill_in_params $FILE
 done
+
+echo '***************************************'
+echo 'Enter the following command to proceed:'
+echo "cd $ABBREV"
