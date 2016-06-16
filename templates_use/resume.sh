@@ -21,6 +21,8 @@ echo 'to the other.  Running the tmux tool inside the Docker container provides'
 echo 'multi-shell access to the same container.'
 echo
 
+sh remove_dangling.sh
+
 id_container=$(docker ps -l -q --filter=image=${DOCKER_IMAGE})
 
 DATE=`date +%Y_%m%d_%H%M`
