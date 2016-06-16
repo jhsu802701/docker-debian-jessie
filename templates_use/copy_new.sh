@@ -11,8 +11,9 @@ echo '--------------------------------------------------'
 echo "Creating Docker container $CONTAINER from $ABBREV"
 docker create -i -t -u='winner' --name $CONTAINER \
   -e HOME=/home/winner -e USERNAME=winner \
-  -v $hs:$ds $DOCKER_IMAGE $is \
+  -v $hs:$ds $DOCKER_IMAGE $is #\
   #PORT_SPECIFICATIONS_HERE
+wait
 
 echo '-------------------------------------------------------'
 echo "Starting Docker container $CONTAINER from $DOCKER_IMAGE"
