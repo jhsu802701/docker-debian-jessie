@@ -8,7 +8,7 @@ fi
 
 DOCKER_IMAGE=<DOCKER_IMAGE>
 
-CONTAINER='changed'
+CONTAINER='<CONTAINER>'
 
 echo '******'
 echo 'NOTICE'
