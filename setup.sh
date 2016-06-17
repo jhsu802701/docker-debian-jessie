@@ -80,6 +80,7 @@ then
   cp templates_shared/test-rails-pg.sh $ABBREV/shared
 fi
 
+# Fill in DOCKER_IMAGE and CONTAINER parameters
 fill_in_params () {
   FILE_TO_UPDATE=$1
   # NOTE: Using \ instead of / as delimiter in sed command
@@ -96,6 +97,30 @@ done
 for FILE in `ls $ABBREV/shared/*.sh`
 do
   fill_in_params $FILE
+done
+
+# Provide port numbers in shared/ports.txt file
+# Provide port numbers when running the info.sh script
+echo "cat ports.txt" >> $ABBREV/shared/info.sh
+echo '--------------------------------' > $ABBREV/shared/ports.txt
+echo 'PORT FORWARDING (Docker -> Host)' >> $ABBREV/shared/ports.txt
+ARRAY_PORTS_TMP=("${ARRAY_PORTS[@]}")
+
+for value in "${ARRAY_PORTS[@]}" ; do    #print the new array 
+  echo "$value" 
+done  
+
+echo ${ARRAY_PORTS_TMP[1]}
+# echo "${ARRAY_PORTS[@]}" # Prints all elements of array
+
+echo ${#ARRAY_PORTS_TMP[@]}
+
+while [ ${#ARRAY_PORTS_TMP[@]} -gt 1 ]; do # If the number of port numbers is odd, the last one is ignored.
+  P0=${ARRAY_PORTS_TMP[0]}
+  P1=${ARRAY_PORTS_TMP[1]}
+  echo "$P0 -> $P1" >> $ABBREV/shared/ports.txt
+  unset -v ARRAY_PORTS_TMP[0]
+  unset -v ARRAY_PORTS_TMP[0]
 done
 
 echo '***************************************'
