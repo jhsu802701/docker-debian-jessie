@@ -15,6 +15,7 @@ echo '2. You have downstream images that depend on your current image.  Use the 
 echo '***************************************************************************************************************************'
 
 sh remove_dangling.sh
+sh remove_none.sh
 sh remove_containers.sh $DOCKER_IMAGE
 sh remove_image.sh $DOCKER_IMAGE
 sh copy_new.sh $DOCKER_IMAGE
