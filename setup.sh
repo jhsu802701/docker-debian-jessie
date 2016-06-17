@@ -101,27 +101,23 @@ done
 
 # Provide port numbers in shared/ports.txt file
 # Provide port numbers when running the info.sh script
+# Provide port numbers in copy_new.sh
 echo "cat ports.txt" >> $ABBREV/shared/info.sh
 echo '--------------------------------' > $ABBREV/shared/ports.txt
 echo 'PORT FORWARDING (Docker -> Host)' >> $ABBREV/shared/ports.txt
 ARRAY_PORTS_TMP=("${ARRAY_PORTS[@]}")
-
-for value in "${ARRAY_PORTS[@]}" ; do    #print the new array 
-  echo "$value" 
-done  
-
-echo ${ARRAY_PORTS_TMP[1]}
-# echo "${ARRAY_PORTS[@]}" # Prints all elements of array
-
-echo ${#ARRAY_PORTS_TMP[@]}
-
+PORT_STRING=''
 while [ ${#ARRAY_PORTS_TMP[@]} -gt 1 ]; do # If the number of port numbers is odd, the last one is ignored.
   P0=${ARRAY_PORTS_TMP[0]}
   P1=${ARRAY_PORTS_TMP[1]}
   echo "$P0 -> $P1" >> $ABBREV/shared/ports.txt
-  unset -v ARRAY_PORTS_TMP[0]
-  unset -v ARRAY_PORTS_TMP[0]
+  PORT_STRING+=" -p $P0:$P1"
+  unset -v ARRAY_PORTS_TMP[0] # Delete first element of ARRAY_PORTS_TMP
+  unset -v ARRAY_PORTS_TMP[0] # Delete first element of ARRAY_PORTS_TMP
 done
+
+sed -i.bak "s/#PORT_SPECIFICATIONS_HERE/$PORT_STRING/g" $ABBREV/copy_new.sh
+rm $ABBREV/copy_new.sh.bak
 
 echo '***************************************'
 echo 'Enter the following command to proceed:'
