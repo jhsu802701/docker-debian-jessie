@@ -28,14 +28,18 @@ echo 'sudo ln -s /bin/bash /bin/sh'
 echo '****************************'
 
 ARRAY_PORTS=() # NOTE: Always has an even number of elements
-
+i=0
 while [ $# -gt 1 ]; do # If the number of port numbers is odd, the last one is ignored.
-	ARRAY_PORTS+=($1 $2)
-	shift # $2 becomes the new $1, $3 becomes the new $2, etc.
-	shift # $2 becomes the new $1, $3 becomes the new $2, etc.
+  # ARRAY_PORTS+=($1 $2)
+  ARRAY_PORTS[i]=$1
+  ARRAY_PORTS[i+1]=$2
+  shift # $2 becomes the new $1, $3 becomes the new $2, etc.
+  shift # $2 becomes the new $1, $3 becomes the new $2, etc.
+  i=$((i+2))
 done
 
-# echo "${ARRAY_PORTS[@]}" # Prints all elements of array
+# echo "All elements of ARRAY_PORTS: ${ARRAY_PORTS[@]}"
+# echo "Number of elements in ARRAY_PORTS: ${#ARRAY_PORTS[@]}"
 
 mkdir -p $ABBREV
 mkdir -p $ABBREV/shared
@@ -105,16 +109,19 @@ done
 echo 'cat ports.txt' >> $ABBREV/shared/info.sh
 echo '--------------------------------' > $ABBREV/shared/ports.txt
 echo 'PORT FORWARDING (Docker -> Host)' >> $ABBREV/shared/ports.txt
-ARRAY_PORTS_TMP=("${ARRAY_PORTS[@]}")
+
+i=0
+LEN_ARRAY_PORTS=${#ARRAY_PORTS[@]}
+INDEX_LAST=$((LEN_ARRAY_PORTS-1))
 PORT_STRING=''
-while [ ${#ARRAY_PORTS_TMP[@]} -gt 1 ]; do # If the number of port numbers is odd, the last one is ignored.
-  P0=${ARRAY_PORTS_TMP[0]}
-  P1=${ARRAY_PORTS_TMP[1]}
-  echo "$P0 -> $P1" >> $ABBREV/shared/ports.txt
+while [ $((i+1)) -le $((INDEX_LAST)) ]; do # If the number of port numbers is odd, the last one is ignored.
+  P0=${ARRAY_PORTS[i]}
+  P1=${ARRAY_PORTS[i+1]}
   PORT_STRING+=" -p $P0:$P1"
-  unset -v ARRAY_PORTS_TMP[0] # Delete first element of ARRAY_PORTS_TMP
-  unset -v ARRAY_PORTS_TMP[0] # Delete first element of ARRAY_PORTS_TMP
+  i=$((i+2))
 done
+
+
 
 sed -i.bak "s/#PORT_SPECIFICATIONS_HERE/$PORT_STRING/g" $ABBREV/copy_new.sh
 rm $ABBREV/copy_new.sh.bak
