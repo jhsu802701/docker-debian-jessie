@@ -57,17 +57,24 @@ echo 'rake db:create db:migrate'
 cd /home/winner/shared/school_pg && rake db:migrate
 wait
 
+cat /home/winner/shared/ports.txt
 echo '**********************'
 echo 'OPEN YOUR WEB BROWSER.'
 echo 'GO TO THE FOLLOWING URL:'
-echo 'http://localhost:<P3000>/pupils'
-echo '*************************************************************'
-echo 'You can use access the database in this app by using pgAdmin.'
-echo 'Host: localhost'
-echo 'Port: <P5432>'
+echo 'http://<IP Address>:<Port Number>/pupils'
+echo "If Docker is installed directly in your host OS, use the IP address 'localhost'."
+echo "If you are using Docker Machine, use Docker Machine's dedicated IP address (probably 192.168.99.100)."
+echo 'Use the host port number that corresponds to port 3000 in Docker.'
+echo '*************************************************************************************'
+echo 'From your host machine, you can use access the database in this app by using pgAdmin.'
+echo 'Host: <IP Address>'
+echo 'Port: <PostgreSQL Port Number>'
 echo 'Maintenance DB: postgres'
 echo "Username: $APP_DB_USER"
 echo "Password: $APP_DB_PASS"
 echo "Database name: $APP_DB_NAME"
-echo '***************************'
+echo "If Docker is installed directly in your host OS, use the IP address 'localhost'."
+echo "If you are using Docker Machine, use Docker Machine's dedicated IP address (probably 192.168.99.100)."
+echo 'Use the host port number that corresponds to port 5432 in Docker.'
+echo '*****************************************************************'
 cd /home/winner/shared/school_pg && rails s -b 0.0.0.0

@@ -118,6 +118,7 @@ while [ $((i+1)) -le $((INDEX_LAST)) ]; do # If the number of port numbers is od
   P0=${ARRAY_PORTS[i]}
   P1=${ARRAY_PORTS[i+1]}
   PORT_STRING+=" -p $P0:$P1"
+  echo "$P0 -> $P1" >> $ABBREV/shared/ports.txt
   i=$((i+2))
 done
 
