@@ -106,6 +106,7 @@ done
 # Provide port numbers in shared/ports.txt file
 # Provide port numbers when running the info.sh script
 # Provide port numbers in copy_new.sh
+echo '' >> $ABBREV/shared/info.sh
 echo 'cat ports.txt' >> $ABBREV/shared/info.sh
 echo '--------------------------------' > $ABBREV/shared/ports.txt
 echo 'PORT FORWARDING (Docker -> Host)' >> $ABBREV/shared/ports.txt
@@ -122,8 +123,6 @@ while [ $((i+1)) -le $((INDEX_LAST)) ]; do # If the number of port numbers is od
   i=$((i+2))
 done
 
-
-
 sed -i.bak "s/#PORT_SPECIFICATIONS_HERE/$PORT_STRING/g" $ABBREV/copy_new.sh
 rm $ABBREV/copy_new.sh.bak
 
@@ -133,6 +132,7 @@ echo "Docker Image: $DOCKER_IMAGE" >> $ABBREV/shared/docker.txt
 echo '----------------------------' >> $ABBREV/shared/docker.txt
 echo "Docker Container: $CONTAINER" >> $ABBREV/shared/docker.txt
 echo '----------------------------' >> $ABBREV/shared/docker.txt
+echo '' >> $ABBREV/shared/info.sh
 echo 'cat docker.txt' >> $ABBREV/shared/info.sh
 
 echo '***************************************'
