@@ -109,7 +109,7 @@ done
 echo '' >> $ABBREV/shared/info.sh
 echo 'cat ports.txt' >> $ABBREV/shared/info.sh
 echo '--------------------------------' > $ABBREV/shared/ports.txt
-echo 'PORT FORWARDING (Docker -> Host)' >> $ABBREV/shared/ports.txt
+echo 'PORT FORWARDING (Host -> Docker)' >> $ABBREV/shared/ports.txt
 
 i=0
 LEN_ARRAY_PORTS=${#ARRAY_PORTS[@]}
