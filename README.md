@@ -16,8 +16,6 @@ Welcome to my repository for using my 32-bit and 64-bit Docker images based on D
 * If you have not already done so, please install Git.
 * If you have not already done so, please install Docker.  For 64-bit Docker, use Docker's official instructions.  For 32-bit Docker, follow the instructions at https://github.com/jhsu802701/docker-32bit-debian-jessie-install to install Docker.
 
-## Building and Using Docker Images
-
 ### Editions available
 * Minimal (min): This consists of the basic features provided by the debootstrap command plus Sudo, Nano, tmux, and a regular user named "winner".
 * Developer (dev): This is the Minimal Editon plus Git, Heroku Toolbelt, Ansible, Chef, and Puppet.
@@ -43,3 +41,7 @@ Just enter sh (script name) to proceed.
 | rbenv-rubymn2       |32rbenv-rubymn2.sh             | rbenv-rubymn2.sh              |
 | rbenv-rubygems      |N/A                            | rbenv-rubygems.sh             |
 | rbenv-losemoneyfast |32rbenv-losemoneyfast.sh       | rbenv-losemoneyfast.sh        |
+
+## Building Docker Images
+* 32-bit: https://github.com/jhsu802701/docker-32bit-debian-jessie-build
+* 64-bit: https://github.com/jhsu802701/docker-64bit-debian-jessie-build
