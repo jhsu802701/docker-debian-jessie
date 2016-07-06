@@ -10,7 +10,7 @@ Welcome to my repository for using my 32-bit and 64-bit Docker images based on D
 * When you start the Rails server from an app in your Docker container, enter the command "rails s -b 0.0.0.0". The "-b 0.0.0.0" is ESSENTIAL for viewing your app from the web browser on your host machine. If you simply enter "rails s" or "rails server", you will NOT be able to view your app from the web browser on your host machine.
 * Viewing PostgreSQL data on the host machine with pgAdmin requires that the Docker container's PostgreSQL setup be configured to provide output to the IP address 0.0.0.0.  Docker images are preconfigured to take care of this.
 * PostgreSQL and other servers are dormant until you or a script acts to start them.  Remember that because there is no virtual machine to boot up, no mechanism is provided to automatically turn on servers.
-* PAY ATTENTION to the port numbers when you use your web browser or pgAdmin to view the Rails apps running on your Vagrant boxes. No two apps may share the same port number. As a result, the port number to use in your web browser will NOT always be 3000, and the port number to use in pgAdmin will NOT always be 5432 or 15432.
+* PAY ATTENTION to the port numbers when you use your web browser or pgAdmin to view the Rails apps running on your Vagrant boxes. No two apps may share the same port number. As a result, the port number to use in your web browser will NOT always be 3000, and the port number to use in pgAdmin will NOT always be 5432 or 15432. The use of different port numbers for different Docker images allows you to work on multiple projects simultaneously.
 
 ## Prerequisites
 * If you have not already done so, please install Git.
