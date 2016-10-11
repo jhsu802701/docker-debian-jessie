@@ -73,6 +73,15 @@ then
   cp templates_shared/info-rbenv-min.sh $ABBREV/shared/info.sh
   cp templates_shared/pg-reset.sh $ABBREV/shared
   cp templates_shared/pg-setup.sh $ABBREV/shared
+elif [ $ABBREV = 'rbenv-jekyll' ]
+then
+  cp templates_shared/info-dev.sh $ABBREV/shared
+  cp templates_shared/info-rbenv-min.sh $ABBREV/shared/
+  cp templates_shared/info-rbenv-jekyll.sh $ABBREV/shared/info.sh
+  cp templates_shared/pg-reset.sh $ABBREV/shared
+  cp templates_shared/pg-setup.sh $ABBREV/shared
+  cp templates_shared/test-jekyll.sh $ABBREV/shared
+  cp templates_shared/test-jekyll.sh $ABBREV/shared
 elif [[ "$ABBREV" =~ "rbenv" ]]
 then
   cp templates_shared/info-dev.sh $ABBREV/shared
