@@ -21,6 +21,7 @@ Welcome to my repository for using my 32-bit and 64-bit Docker images based on D
 * Developer (dev): This is the Minimal Editon plus Git, Heroku Toolbelt, Ansible, Chef, and Puppet.
 * Hyde (hyde): This is the Developer Edition plus Python and its Hyde tool for creating static web sites.
 * Minimal rbenv (rbenv-min): This is the Developer Edition plus rbenv for Ruby on Rails.  Please note that no versions of Ruby or Rails are provided.  This is a building block for the General rbenv Edition and other Docker images for Ruby on Rails.
+* Jekyll rbenv (rbenv-jekyll): This is the Jekyll Docker image for creating static web sites.  It comes with rbenv, the latest version of Ruby, and the latest version of the Jekyll gem.
 * General rbenv (rbenv-general): This is a general purpose Docker image for using Ruby on Rails.  It comes with the latest versions of Ruby and Rails plus the versions of Rails used in the last few versions of the Rails Tutorial Sample App.
 * RubyMn rbenv (rbenv-rubymn): This includes the versions of Ruby and Rails used by https://github.com/rubymn/ruby.mn-website .
 * RubyMn2 rbenv (rbenv-rubymn2): This includes the versions of Ruby and Rails used by https://github.com/jhsu802701/ruby_mn_site .
