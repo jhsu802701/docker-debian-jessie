@@ -51,7 +51,7 @@ cp templates_use/* $ABBREV
 # Get shared files
 # min -> dev
 # min -> dev -> hyde
-# min -> dev -> rbenv-min
+# min -> dev -> rbenv-*
 
 cp templates_shared/info-min.sh $ABBREV/shared # For all Docker images
 cp templates_shared/README-host.txt $ABBREV/shared # For all Docker images
@@ -67,16 +67,9 @@ then
   cp templates_shared/info-dev.sh $ABBREV/shared
   cp templates_shared/info-hyde.sh $ABBREV/shared/info.sh
   cp templates_shared/test-hyde.sh $ABBREV/shared
-elif [ $ABBREV = 'rbenv-min' ]
-then
-  cp templates_shared/info-dev.sh $ABBREV/shared
-  cp templates_shared/info-rbenv-min.sh $ABBREV/shared/info.sh
-  cp templates_shared/pg-reset.sh $ABBREV/shared
-  cp templates_shared/pg-setup.sh $ABBREV/shared
 elif [ $ABBREV = 'rbenv-jekyll' ]
 then
   cp templates_shared/info-dev.sh $ABBREV/shared
-  cp templates_shared/info-rbenv-min.sh $ABBREV/shared/
   cp templates_shared/info-rbenv-jekyll.sh $ABBREV/shared/info.sh
   cp templates_shared/pg-reset.sh $ABBREV/shared
   cp templates_shared/pg-setup.sh $ABBREV/shared
@@ -85,7 +78,6 @@ then
 elif [[ "$ABBREV" =~ "rbenv" ]]
 then
   cp templates_shared/info-dev.sh $ABBREV/shared
-  cp templates_shared/info-rbenv-min.sh $ABBREV/shared/
   cp templates_shared/info-rbenv-general.sh $ABBREV/shared/info.sh
   cp templates_shared/pg-reset.sh $ABBREV/shared
   cp templates_shared/pg-setup.sh $ABBREV/shared

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sh info-rbenv-min.sh
+sh info-dev.sh
 
 echo '-------'
 echo 'ruby -v'
@@ -9,10 +9,6 @@ ruby -v
 echo '--------'
 echo 'rails -v'
 rails -v
-
-echo '--------------'
-echo 'rbenv versions'
-rbenv versions
 
 echo '------------------'
 echo 'gem list "^rails$"'

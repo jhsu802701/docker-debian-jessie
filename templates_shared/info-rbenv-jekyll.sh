@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sh info-rbenv-min.sh
+sh info-dev.sh
 
 echo '-------'
 echo 'ruby -v'
