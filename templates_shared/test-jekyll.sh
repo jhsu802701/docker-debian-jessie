@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script tests your Hyde installation by running the Hyde Starter Kit.
+# This script tests your Jekyll installation.
 
 sh /home/winner/shared/info.sh
 
