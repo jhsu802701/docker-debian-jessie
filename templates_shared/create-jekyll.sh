@@ -42,7 +42,7 @@ echo "cd $PROJECT_NAME && bundle install"
 ( cd $PROJECT_NAME && bundle install )
 wait
 
-FILE_TODO=$PROJECT_NAME/to_do.txt
+FILE_TODO=$PROJECT_NAME/README-to_do.md
 echo '-------------------'
 echo "Creating $FILE_TODO"
 echo 'TO DO LIST' > $FILE_TODO
