@@ -75,6 +75,7 @@ then
   cp templates_shared/pg-setup.sh $ABBREV/shared
   cp templates_shared/test-jekyll.sh $ABBREV/shared
   cp templates_shared/test-jekyll.sh $ABBREV/shared
+  cp templates_shared/create-jekyll.sh $ABBREV/shared
 elif [[ "$ABBREV" =~ "rbenv" ]]
 then
   cp templates_shared/info-dev.sh $ABBREV/shared
