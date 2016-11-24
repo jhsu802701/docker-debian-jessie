@@ -35,7 +35,7 @@ BLANK=''
 sed -i.bak "s|_site|$BLANK|g" $PROJECT_NAME/.gitignore
 echo '-----------------------'
 echo 'Do not track _site/*.sh'
-echo '_site/*.sh' >> $PROJECT_NAME/to_do.txt
+echo '_site/*.sh' >> $PROJECT_NAME/.gitignore
 
 echo '----------------------------------'
 echo "cd $PROJECT_NAME && bundle install"
