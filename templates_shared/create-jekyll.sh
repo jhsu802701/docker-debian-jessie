@@ -6,10 +6,12 @@ read PROJECT_NAME
 echo '--------------------------------------------------------------'
 echo "git clone https://github.com/brijeshb42/bitwiser $PROJECT_NAME"
 git clone https://github.com/brijeshb42/bitwiser $PROJECT_NAME
+wait
 
 echo '---------------------------------------------------------'
 echo 'git clone https://github.com/jhsu802701/jekyll-heroku.git'
 git clone https://github.com/jhsu802701/jekyll-heroku.git
+wait
 
 echo '-------------------------'
 echo 'rm -rf jekyll-heroku/.git'
@@ -31,24 +33,35 @@ echo '-------------------------'
 echo 'Track the _site directory'
 BLANK=''
 sed -i.bak "s|_site|$BLANK|g" $PROJECT_NAME/.gitignore
+echo '-----------------------'
+echo 'Do not track _site/*.sh'
+echo '_site/*.sh' >> $PROJECT_NAME/to_do.txt
 
 echo '----------------------------------'
 echo "cd $PROJECT_NAME && bundle install"
 ( cd $PROJECT_NAME && bundle install )
+wait
 
 ( cd $PROJECT_NAME && sh build.sh )
+wait
+
+FILE_TODO=$PROJECT_NAME/to_do.txt
+echo ''
+echo "Creating $FILE_TODO"
+echo 'TO DO LIST' > $FILE_TODO
+echo 'sh credentials.sh' >> $FILE_TODO
+echo 'git add .' >> $FILE_TODO
+echo "git commit -m 'First commit'" >> $FILE_TODO
+echo 'sh server.sh' >> $FILE_TODO
+echo 'Create a repository for this Jekyll project on GitHub.' >> $FILE_TODO
+echo 'Deploy this Jekyll project to Heroku.  Details are in heroku.sh.' >> $FILE_TODO
 
 echo '-------------'
 echo 'Resetting Git'
 rm -rf $PROJECT_NAME/.git
 ( cd $PROJECT_NAME && git init )
+wait
 
-echo '***********'
-echo 'NEXT STEPS:'
-echo "1. cd $PROJECT_NAME"
-echo '2. sh credentials.sh'
-echo '3. git add .'
-echo "4. git commit -m 'First commit'"
-echo '5. sh server.sh'
-echo '6. Create a repository for this Jekyll project on GitHub.'
-echo '7. Deploy this Jekyll project to Heroku.  Details are in heroku.sh.'
+echo '*************'
+echo 'THINGS TO DO:'
+echo "$FILE_TODO"
