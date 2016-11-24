@@ -29,14 +29,6 @@ echo '-------------------------------------'
 echo "Disabling pagination in $PROJECT_NAME"
 sed -i.bak "s|paginate|#paginate|g" $PROJECT_NAME/_config.yml
 
-echo '-------------------------'
-echo 'Track the _site directory'
-BLANK=''
-sed -i.bak "s|_site|$BLANK|g" $PROJECT_NAME/.gitignore
-echo '-----------------------'
-echo 'Do not track _site/*.sh'
-echo '_site/*.sh' >> $PROJECT_NAME/.gitignore
-
 echo '----------------------------------'
 echo "cd $PROJECT_NAME && bundle install"
 ( cd $PROJECT_NAME && bundle install )
