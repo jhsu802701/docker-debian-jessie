@@ -29,9 +29,19 @@ echo '-------------------------------------'
 echo "Disabling pagination in $PROJECT_NAME"
 sed -i.bak "s|paginate|#paginate|g" $PROJECT_NAME/_config.yml
 
-echo '----------------------------------'
-echo "cd $PROJECT_NAME && bundle install"
+echo '--------------------'
+echo 'Updating _config.yml'
+echo "gems: ['kramdown']" >> $PROJECT_NAME/_config.yml
+echo "exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor', 'Procfile', 'Rakefile']" >> $PROJECT_NAME/_config.yml
+
+echo '--------------------------------------'
+echo "( cd $PROJECT_NAME && bundle install )"
 ( cd $PROJECT_NAME && bundle install )
+wait
+
+echo '-----------------------------------'
+echo '( cd $PROJECT_NAME && sh build.sh )'
+( cd $PROJECT_NAME && sh build.sh )
 wait
 
 FILE_TODO=$PROJECT_NAME/README-to_do.md
@@ -44,9 +54,6 @@ echo "git commit -m 'First commit'" >> $FILE_TODO
 echo 'sh server.sh' >> $FILE_TODO
 echo 'Create a repository for this Jekyll project on GitHub.' >> $FILE_TODO
 echo 'Deploy this Jekyll project to Heroku.  Details are in heroku.sh.' >> $FILE_TODO
-
-( cd $PROJECT_NAME && sh build.sh )
-wait
 
 echo '-------------'
 echo 'Resetting Git'
