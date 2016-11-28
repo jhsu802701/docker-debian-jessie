@@ -19,7 +19,6 @@ Welcome to my repository for using my 32-bit and 64-bit Docker images based on D
 ### Editions available
 * Minimal (min): This consists of the basic features provided by the debootstrap command plus Sudo, Nano, tmux, and a regular user named "winner".
 * Developer (dev): This is the Minimal Editon plus Git, Heroku Toolbelt, Ansible, Chef, Puppet, NVM, Node, and rbenv.  This is a building block for the rbenv-* editions.
-* Hyde (hyde): This is the Developer Edition plus Python and its Hyde tool for creating static web sites.
 * Jekyll rbenv (rbenv-jekyll): This is the Jekyll Docker image for creating static web sites.  It comes with rbenv, the latest version of Ruby, and the latest version of the Jekyll gem.
 * General rbenv (rbenv-general): This is a general purpose Docker image for using Ruby on Rails.  It comes with the latest versions of Ruby and Rails plus the versions of Rails used in the last few versions of the Rails Tutorial Sample App.
 * RubyMn rbenv (rbenv-rubymn): This includes the versions of Ruby and Rails used by https://github.com/rubymn/ruby.mn-website .
@@ -34,7 +33,7 @@ Just enter sh (script name) to proceed.
 |---------------------|-------------------------------|-------------------------------|
 | min                 |32min.sh                       | min.sh                        |
 | dev                 |32dev.sh                       | dev.sh                        |
-| hyde                |32hyde.sh                      | hyde.sh                       |
+| rbenv-jekyll        |32rbenv-jekyll.sh              | rbenv-jekyll.sh
 | rbenv-general       |32rbenv-general.sh             | rbenv-general.sh              |
 | rbenv-rubymn        |32rbenv-rubymn.sh              | rbenv-rubymn.sh               |
 | rbenv-rubymn2       |32rbenv-rubymn2.sh             | rbenv-rubymn2.sh              |
