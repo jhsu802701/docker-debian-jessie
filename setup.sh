@@ -18,15 +18,6 @@ shift # $2 becomes the new $1, $3 becomes the new $2, etc.
 
 # Remaining parameters are port numbers
 
-echo '*************'
-echo 'ls -l /bin/sh'
-ls -l /bin/sh
-echo '/bin/sh should point to Bash instead of Dash'
-echo 'If /bin/sh points to Dash, the commands to correct this are:'
-echo 'sudo rm /bin/sh'
-echo 'sudo ln -s /bin/bash /bin/sh'
-echo '****************************'
-
 ARRAY_PORTS=() # NOTE: Always has an even number of elements
 i=0
 while [ $# -gt 1 ]; do # If the number of port numbers is odd, the last one is ignored.
