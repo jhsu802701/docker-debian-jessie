@@ -77,4 +77,4 @@ echo "If Docker is installed directly in your host OS, use the IP address 'local
 echo "If you are using Docker Machine, use Docker Machine's dedicated IP address (probably 192.168.99.100)."
 echo 'Use the host port number that corresponds to port 5432 in Docker.'
 echo '*****************************************************************'
-cd /home/winner/shared/school_pg && rails s -b 0.0.0.0
+cd /home/winner/shared/school_pg && rails s -b 0.0.0.0 -p 3000
