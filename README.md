@@ -1,5 +1,5 @@
-# docker-debian-jessie
-Welcome to my repository for using my 32-bit and 64-bit Docker images based on Debian Jessie.  These Docker images are stored on [Docker Hub](https://hub.docker.com/r/jhsu802701/).
+# docker-debian-stretch
+Welcome to my repository for using my 32-bit and 64-bit Docker images based on Debian Stretch.  These Docker images are stored on [Docker Hub](https://hub.docker.com/r/jhsu802701/).
 
 ## Incompatibility Warnings
 * In the ideal case, your host machine's processor supports 64 bits AND full virtualization (which means meeting the VT-x or AMD-v standard).  In this case, use a 64-bit OS and a 64-bit Docker image.  If you use a 32-bit Docker image in a 64-bit host, you may find that the tmux multiplexing tool and PostgreSQL do not work properly in Docker.
@@ -14,7 +14,7 @@ Welcome to my repository for using my 32-bit and 64-bit Docker images based on D
 
 ## Prerequisites
 * If you have not already done so, please install Git.
-* If you have not already done so, please install Docker.  For 64-bit Docker, use Docker's official instructions.  For 32-bit Docker, follow the instructions at https://github.com/jhsu802701/docker-32bit-debian-jessie-install to install Docker.
+* If you have not already done so, please install Docker.  For 64-bit Docker, use Docker's official instructions.  For 32-bit Docker, follow the instructions at https://github.com/jhsu802701/docker-32bit-debian-stretch-install to install Docker.
 
 ### Editions available
 * Minimal (min): This consists of the basic features provided by the debootstrap command plus Sudo, Nano, tmux, and a regular user named "winner".
@@ -41,5 +41,5 @@ Just enter sh (script name) to proceed.
 | rbenv-losemoneyfast |32rbenv-losemoneyfast.sh       | rbenv-losemoneyfast.sh        |
 
 ## Building Docker Images
-* 32-bit: https://github.com/jhsu802701/docker-32bit-debian-jessie-build
-* 64-bit: https://github.com/jhsu802701/docker-64bit-debian-jessie-build
+* 32-bit: https://github.com/jhsu802701/docker-32bit-debian-stretch-build
+* 64-bit: https://github.com/jhsu802701/docker-64bit-debian-stretch-build

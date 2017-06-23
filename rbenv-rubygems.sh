@@ -3,7 +3,7 @@
 ABBREV='rbenv-rubygems'
 OWNER='jhsu802701'
 DISTRO='debian'
-SUITE='jessie'
+SUITE='stretch'
 DOCKER_IMAGE="$OWNER/$DISTRO-$SUITE-$ABBREV"
 CONTAINER="container-$DISTRO-$SUITE-$ABBREV"
 TGZ_FILE="$DISTRO-$SUITE-$ABBREV.tgz"
